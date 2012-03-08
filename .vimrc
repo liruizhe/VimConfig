@@ -48,6 +48,7 @@ set mouse=a            " Enable mouse usage (all modes)    "使用鼠标
 set number            " Enable line number    "显示行号
 "set previewwindow    " 标识预览窗口
 set history=50        " set command history to 50    "历史记录50条
+set expandtab
 
 
 "--状态行设置--
