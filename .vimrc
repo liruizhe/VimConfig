@@ -44,11 +44,10 @@ set showmatch        " 设置匹配模式，显示匹配的括号
 set linebreak        " 整词换行
 set whichwrap=b,s,<,>,[,] " 光标从行首和行末时可以跳到另一行去
 "set hidden " Hide buffers when they are abandoned
-set mouse=a            " Enable mouse usage (all modes)    "使用鼠标
+"set mouse=a            " Enable mouse usage (all modes)    "使用鼠标
 set number            " Enable line number    "显示行号
 "set previewwindow    " 标识预览窗口
 set history=50        " set command history to 50    "历史记录50条
-set expandtab
 
 
 "--状态行设置--
@@ -98,3 +97,18 @@ let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动�
 "是否一直处理tags.1:处理;0:不处理
 let Tlist_Process_File_Always=1 "实时更新tags
 let Tlist_Inc_Winwidth=0
+
+    "-- WinManager setting --
+	let g:winManagerWindowLayout='FileExplorer|TagList' "设置我们要管理的插件
+	"let g:persistentBehaviour=0 " 如果所有编辑文件都关闭了，退出vim
+	nmap wm :WMToggle<cr> 
+
+let s:extfname = tolower(expand("%:e"))
+if s:extfname ==? "f90"
+	let fortran_free_source=1
+	unlet! fortran_fixed_source
+else
+	let fortran_fixed_source=1
+	unlet! fortran_free_source
+endif
+set shell=/bin/bash
